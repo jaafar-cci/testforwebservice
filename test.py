@@ -23,7 +23,8 @@ st.title('Oman services chatbot')
 #  'Content-Type':'application/json',
 #  'Accept-Charset': 'utf-8, iso-8859-1;q=0.5, *;q=0.1'
 # }
-# question = st.text_input("how can I help you today?", "")
+question = st.text_input("how can I help you today?", "")
+
 # payload = json.dumps({
 #         "query":question
 #         })

@@ -29,11 +29,7 @@ question = st.text_input("how can I help you today?", "")
 # pyodbc.connect(‘Driver={FreeTDS};SERVER=’+server+’;DATABASE=’+database+’;UID=’+username+’;PWD=’+password)
 # pyodbc.connect('DSN=MSSQLServerDatabase;UID=myuid', password="secret{}();'P@ssw0rd}{")
 conn = pyodbc.connect(
-    'Driver={FreeTDS};'
-    "uid=userj;pwd=P@ssw0rd;"
-    'Server=devops-test;'
-    'Database=testopenai;'
-    'Trusted_Connection=yes;')
+'Driver={ODBC Driver 17 for SQL Server};Server=myServerAddress;Database=myDataBase;Trusted_Connection=yes;')
 # conn = pyodbc.connect('DSN = openaisql2; Server = devops-test; Port = 1433' )   
     
 # conn = pyodbc.connect('DRIVER={ODBC Driver 11 for SQL Server};Server=localhost;Database=test;Trusted_Connection=yes;')

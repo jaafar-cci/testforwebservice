@@ -30,8 +30,7 @@ conn = pyodbc.connect(
     'Driver={SQL Server};'
     'Server=Mic;'
     'Database=testopenai;'
-    'Trusted_Connection=yes;'
-)
+    'Trusted_Connection=yes;')
        
     
 # conn = pyodbc.connect('DRIVER={ODBC Driver 11 for SQL Server};Server=localhost;Database=test;Trusted_Connection=yes;')

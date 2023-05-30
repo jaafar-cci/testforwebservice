@@ -26,13 +26,13 @@ st.title('Oman services chatbot')
 question = st.text_input("how can I help you today?", "")
 
 # Establish a connection to the SQL Server database
+pyodbc.connect('DSN=MSSQLServerDatabase;UID=myuid', password="secret{}();'P@ssw0rd}{")
 # conn = pyodbc.connect(
-#     'Driver={SQL SERVER};'
+#     'Driver={ODBC Driver 17 for SQL Server};'
 #     "uid=userj;pwd=P@ssw0rd;"
 #     'Server=devops-test;'
-#     'Port=1433;'
 #     'Database=testopenai;'
 #     'Trusted_Connection=yes;')
-conn = pyodbc.connect('DSN = openaisql2; Server = devops-test; Port = 1433' )   
+# conn = pyodbc.connect('DSN = openaisql2; Server = devops-test; Port = 1433' )   
     
 # conn = pyodbc.connect('DRIVER={ODBC Driver 11 for SQL Server};Server=localhost;Database=test;Trusted_Connection=yes;')

@@ -27,9 +27,9 @@ question = st.text_input("how can I help you today?", "")
 
 # Establish a connection to the SQL Server database
 conn = pyodbc.connect(
-    'Driver={ODBC Driver 17 for SQL Server};'
-    "uid=userj;pwd=P@ssw0rd;"
-    'Server=devops-test;'
+    'Driver={sqlserver};'
+    "uid=userj;pwd=useruser;"
+    'Server=MIC;'
     'Port=1433;'
     'Database=testopenai;'
     'Trusted_Connection=yes;')

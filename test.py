@@ -33,6 +33,6 @@ question = st.text_input("how can I help you today?", "")
 #     'Port=1433;'
 #     'Database=testopenai;'
 #     'Trusted_Connection=yes;')
-conn = pyodc.connect('DSN = openaisql2; Server = devops-test; Port = 1433' )   
+conn = pyodbc.connect('DSN = openaisql2; Server = devops-test; Port = 1433' )   
     
 # conn = pyodbc.connect('DRIVER={ODBC Driver 11 for SQL Server};Server=localhost;Database=test;Trusted_Connection=yes;')

@@ -39,5 +39,13 @@ conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};Server=MIC;Databas
 cursor = conn.cursor()
 sql_insert = "INSERT INTO conversation (question, answer) VALUES (?, ?)"
 data = [('how you', 'nothingjjjjjjjjjj')]
+cursor.executemany(sql_insert, data)
+
+# Commit the transaction to save the changes
+conn.commit()
+
+# Close the cursor and the database connection
+cursor.close()
+conn.close()
 # conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};Server=10.1.0.4;Database=testopenai;UID=userj;PWD=user1234;')    
 # conn = pyodbc.connect('DRIVER={ODBC Driver 11 for SQL Server};Server=localhost;Database=test;Trusted_Connection=yes;')

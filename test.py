@@ -37,7 +37,7 @@ question = st.text_input("how can I help you today?", "")
 # conn = pyodbc.connect('DSN = openaisql2; Server = devops-test; Port = 1433' ) 
 conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};Server=MIC;Database=testopenai;UID=userj;PWD=useruser;')
 cursor = conn.cursor()
-sql_insert = "INSERT INTO conversation (question, answer) VALUES (?, ?)"
+sql_insert = "INSERT INTO conversationm (question, answer) VALUES (?, ?)"
 data = [('how you', 'nothingjjjjjjjjjj')]
 cursor.executemany(sql_insert, data)
 

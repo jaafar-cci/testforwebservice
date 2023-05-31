@@ -35,6 +35,6 @@ question = st.text_input("how can I help you today?", "")
 #     'Database=testopenai;'
 #     'Trusted_Connection=yes;')
 # conn = pyodbc.connect('DSN = openaisql2; Server = devops-test; Port = 1433' ) 
-conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};Server=10.1.0.4;Database=testopenai;UID=userj;PWD=user1234;')
-    
+conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};Server=MIC;Database=testopenai;UID=userj;PWD=useruser;')
+# conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};Server=10.1.0.4;Database=testopenai;UID=userj;PWD=user1234;')    
 # conn = pyodbc.connect('DRIVER={ODBC Driver 11 for SQL Server};Server=localhost;Database=test;Trusted_Connection=yes;')

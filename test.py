@@ -45,7 +45,7 @@ def get_database():
 
  
 dbname = get_database()
-collection_name = dbname['conversation']
+collection_name = dbname["openaitest"]['conversation']
 st.write(collection_name)
 # cursor = conn.cursor()
 # sql_insert = "INSERT INTO conversation (question, answer) VALUES (?, ?)"

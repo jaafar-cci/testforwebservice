@@ -39,7 +39,7 @@ question = st.text_input("how can I help you today?", "")
 # conn = pyodbc.connect('DRIVER={Devart ODBC Driver for MongoDB};Server=DESKTOP-D2BR8HJ;Port=27017;Database =openaitest;')
 from pymongo import MongoClient
 def get_database():
-   CONNECTION_STRING = "mongodb://DESKTOP-D2BR8HJ:27017/"
+   CONNECTION_STRING = "mongodb://MIC:27017/"
    client = MongoClient(CONNECTION_STRING)
    return client['openaitest']
 

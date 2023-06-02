@@ -36,8 +36,16 @@ question = st.text_input("how can I help you today?", "")
 #     'Trusted_Connection=yes;')
 # conn = pyodbc.connect('DSN = openaisql2; Server = devops-test; Port = 1433' ) 
 # conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};Server=MIC;Database=testopenai;UID=userj;PWD=useruser;')
-conn = pyodbc.connect('DRIVER={Devart ODBC Driver for MongoDB};Server=DESKTOP-D2BR8HJ;Port=27017;Database =openaitest;')
-st.write(conn)
+# conn = pyodbc.connect('DRIVER={Devart ODBC Driver for MongoDB};Server=DESKTOP-D2BR8HJ;Port=27017;Database =openaitest;')
+from pymongo import MongoClient
+def get_database():
+   CONNECTION_STRING = "mongodb://DESKTOP-D2BR8HJ:27017/"
+   client = MongoClient(CONNECTION_STRING)
+   return client['openaitest']
+
+
+dbname = get_database()
+st.write(dbname)
 # cursor = conn.cursor()
 # sql_insert = "INSERT INTO conversation (question, answer) VALUES (?, ?)"
 # data = [('how you', 'nothingjjjjjjjjjj')]

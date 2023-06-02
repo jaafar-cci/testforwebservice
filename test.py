@@ -45,6 +45,7 @@ def get_database():
 
  
 dbname = get_database()
+collection_name = dbname['conversation']
 st.write(dbname)
 # cursor = conn.cursor()
 # sql_insert = "INSERT INTO conversation (question, answer) VALUES (?, ?)"

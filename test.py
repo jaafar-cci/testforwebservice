@@ -47,6 +47,17 @@ def get_database():
 dbname = get_database()
 collection_name = dbname["openaitest"]['conversation']
 st.write(collection_name)
+item_1 = {
+  "_id" : "U1IT00001",
+  "item_name" : "BlaBlaBlaBla",
+  "max_discount" : "10%",
+  "batch_number" : "RR450020FRG",
+  "price" : 340,
+  "category" : "kitchen appliance"
+}
+
+
+collection_name.insert_one(item_1)
 # cursor = conn.cursor()
 # sql_insert = "INSERT INTO conversation (question, answer) VALUES (?, ?)"
 # data = [('how you', 'nothingjjjjjjjjjj')]

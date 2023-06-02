@@ -43,7 +43,7 @@ def get_database():
    client = MongoClient(CONNECTION_STRING)
    return client['openaitest']
 
-
+ 
 dbname = get_database()
 st.write(dbname)
 # cursor = conn.cursor()

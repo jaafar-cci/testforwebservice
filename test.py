@@ -40,7 +40,7 @@ question = st.text_input("how can I help you today?", "")
 from pymongo import MongoClient
 def get_database():
    CONNECTION_STRING = "mongodb://MIC:27017/"
-   client = MongoClient(CONNECTION_STRING)
+   client = MongoClient(CONNECTION_STRING, connectTimeoutMS=60000)
    return client['openaitest']
 
  

@@ -1,0 +1,6 @@
+streamlit
+requests
+pyodbc
+sqlserverport
+pymongo
+react

@@ -35,7 +35,7 @@ question = st.text_input("how can I help you today?", "")
 #     'Database=testopenai;'
 #     'Trusted_Connection=yes;')
 # conn = pyodbc.connect('DSN = openaisql2; Server = devops-test; Port = 1433' ) 
-# conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};Server=MIC;Database=testopenai;UID=userj;PWD=useruser;')
+conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};Server=MIC;Database=testopenai;UID=userj;PWD=useruser;')
 # conn = pyodbc.connect('DRIVER={Devart ODBC Driver for MongoDB};Server=DESKTOP-D2BR8HJ;Port=27017;Database =openaitest;')
 from pymongo import MongoClient
 def get_database():
@@ -57,16 +57,16 @@ item_1 = {
 
 
 collection_name.insert_one(item_1)
-# cursor = conn.cursor()
-# sql_insert = "INSERT INTO conversation (question, answer) VALUES (?, ?)"
-# data = [('how you', 'nothingjjjjjjjjjj')]
-# cursor.executemany(sql_insert, data)
+cursor = conn.cursor()
+sql_insert = "INSERT INTO conversation (question, answer) VALUES (?, ?)"
+data = [('how ho how how ', 'nothingjjjjjjjjjj')]
+cursor.executemany(sql_insert, data)
 
-# # Commit the transaction to save the changes
-# conn.commit()
+# Commit the transaction to save the changes
+conn.commit()
 
-# # Close the cursor and the database connection
-# cursor.close()
-# conn.close()
+# Close the cursor and the database connection
+cursor.close()
+conn.close()
 # conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};Server=10.1.0.4;Database=testopenai;UID=userj;PWD=user1234;')    
 # conn = pyodbc.connect('DRIVER={ODBC Driver 11 for SQL Server};Server=localhost;Database=test;Trusted_Connection=yes;')

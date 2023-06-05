@@ -43,7 +43,6 @@ def get_database():
    client = MongoClient(CONNECTION_STRING, connectTimeoutMS=60000)
    return client['openaitest']
 
- 
 dbname = get_database()
 collection_name = dbname['conversation']
 st.write(collection_name)

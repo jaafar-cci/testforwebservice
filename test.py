@@ -25,48 +25,93 @@ st.title('Oman services chatbot')
 # }
 question = st.text_input("how can I help you today?", "")
 
-# Establish a connection to the SQL Server database
-# pyodbc.connect(‘Driver={FreeTDS};SERVER=’+server+’;DATABASE=’+database+’;UID=’+username+’;PWD=’+password)
-# pyodbc.connect('DSN=MSSQLServerDatabase;UID=myuid', password="secret{}();'P@ssw0rd}{")
-# conn = pyodbc.connect(
-#     'Driver={FreeTDS};'
-#     "uid=userj;pwd=P@ssw0rd;"
-#     'Server=devops-test;'
-#     'Database=testopenai;'
-#     'Trusted_Connection=yes;')
-# conn = pyodbc.connect('DSN = openaisql2; Server = devops-test; Port = 1433' ) 
-conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};Server=MIC,3306;Database=testopenai;UID=userj;PWD=useruser;')
-# conn = pyodbc.connect('DRIVER={Devart ODBC Driver for MongoDB};Server=DESKTOP-D2BR8HJ;Port=27017;Database =openaitest;')
-from pymongo import MongoClient
-def get_database():
-   CONNECTION_STRING = "mongodb://MIC:27017/"
-   client = MongoClient(CONNECTION_STRING, connectTimeoutMS=60000)
-   return client['openaitest']
+# # Establish a connection to the SQL Server database
+# # pyodbc.connect(‘Driver={FreeTDS};SERVER=’+server+’;DATABASE=’+database+’;UID=’+username+’;PWD=’+password)
+# # pyodbc.connect('DSN=MSSQLServerDatabase;UID=myuid', password="secret{}();'P@ssw0rd}{")
+# # conn = pyodbc.connect(
+# #     'Driver={FreeTDS};'
+# #     "uid=userj;pwd=P@ssw0rd;"
+# #     'Server=devops-test;'
+# #     'Database=testopenai;'
+# #     'Trusted_Connection=yes;')
+# # conn = pyodbc.connect('DSN = openaisql2; Server = devops-test; Port = 1433' ) 
+# conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};Server=MIC,3306;Database=testopenai;UID=userj;PWD=useruser;')
+# # conn = pyodbc.connect('DRIVER={Devart ODBC Driver for MongoDB};Server=DESKTOP-D2BR8HJ;Port=27017;Database =openaitest;')
+# from pymongo import MongoClient
+# def get_database():
+#    CONNECTION_STRING = "mongodb://MIC:27017/"
+#    client = MongoClient(CONNECTION_STRING, connectTimeoutMS=60000)
+#    return client['openaitest']
 
-dbname = get_database()
-collection_name = dbname['conversation']
-st.write(collection_name)
-item_1 = {
-  "_id" : "U1IT00006",
-  "item_name" : "BlaBlaBlaBla",
-  "max_discount" : "10%",
-  "batch_number" : "RR450020FRG",
-  "price" : 340,
-  "category" : "kitchen appliance"
-}
+# dbname = get_database()
+# collection_name = dbname['conversation']
+# st.write(collection_name)
+# item_1 = {
+#   "_id" : "U1IT00006",
+#   "item_name" : "BlaBlaBlaBla",
+#   "max_discount" : "10%",
+#   "batch_number" : "RR450020FRG",
+#   "price" : 340,
+#   "category" : "kitchen appliance"
+# }
 
 
-collection_name.insert_one(item_1)
-cursor = conn.cursor()
-sql_insert = "INSERT INTO conversation (question, answer) VALUES (?, ?)"
-data = [('how ho how how ', '12:48')]
-cursor.executemany(sql_insert, data)
+# collection_name.insert_one(item_1)
+# cursor = conn.cursor()
+# sql_insert = "INSERT INTO conversation (question, answer) VALUES (?, ?)"
+# data = [('how ho how how ', '12:48')]
+# cursor.executemany(sql_insert, data)
 
-# Commit the transaction to save the changes
-conn.commit()
+# # Commit the transaction to save the changes
+# conn.commit()
 
-# Close the cursor and the database connection
-cursor.close()
-conn.close()
-# conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};Server=10.1.0.4;Database=testopenai;UID=userj;PWD=user1234;')    
-# conn = pyodbc.connect('DRIVER={ODBC Driver 11 for SQL Server};Server=localhost;Database=test;Trusted_Connection=yes;')
+# # # Close the cursor and the database connection
+# cursor.close()
+# conn.close()
+# # conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};Server=10.1.0.4;Database=testopenai;UID=userj;PWD=user1234;')    
+# # conn = pyodbc.connect('DRIVER={ODBC Driver 11 for SQL Server};Server=localhost;Database=test;Trusted_Connection=yes;')
+
+
+
+import React, { useState, useEffect } from 'react';
+
+const LoginPopup = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Call the Python backend function to validate the login
+    const isLoginSuccessful = validateLogin(username, password);
+
+    if (isLoginSuccessful) {
+      // Redirect the user to the main application page
+      window.location.href = '/app';
+    } else {
+      // Display an error message to the user
+      alert('Invalid username or password');
+    }
+  };
+
+  return (
+    <div>
+      <h1>Login</h1>
+      <input
+        type="text"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button onClick={handleSubmit}>Login</button>
+    </div>
+  );
+};
+
+export default LoginPopup;

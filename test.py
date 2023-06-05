@@ -45,7 +45,7 @@ def get_database():
 
  
 dbname = get_database()
-collection_name = dbname["openaitest"]['conversation']
+collection_name = dbname['conversation']
 st.write(collection_name)
 item_1 = {
   "_id" : "U1IT00006",

@@ -35,11 +35,11 @@ question = st.text_input("how can I help you today?", "")
 #     'Database=testopenai;'
 #     'Trusted_Connection=yes;')
 # conn = pyodbc.connect('DSN = openaisql2; Server = devops-test; Port = 1433' ) 
-conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};Server=MIC;Database=testopenai;UID=userj;PWD=useruser;')
+conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};Server=MIC,3306;Database=testopenai;UID=userj;PWD=useruser;')
 # conn = pyodbc.connect('DRIVER={Devart ODBC Driver for MongoDB};Server=DESKTOP-D2BR8HJ;Port=27017;Database =openaitest;')
 from pymongo import MongoClient
 def get_database():
-   CONNECTION_STRING = "mongodb://DESKTOP-D2BR8HJ:27017/"
+   CONNECTION_STRING = "mongodb://MIC:27017/"
    client = MongoClient(CONNECTION_STRING, connectTimeoutMS=60000)
    return client['openaitest']
 
@@ -59,7 +59,7 @@ item_1 = {
 collection_name.insert_one(item_1)
 cursor = conn.cursor()
 sql_insert = "INSERT INTO conversation (question, answer) VALUES (?, ?)"
-data = [('how ho how how ', 'nothingjjjjjjjjjj')]
+data = [('how ho how how ', '12:48')]
 cursor.executemany(sql_insert, data)
 
 # Commit the transaction to save the changes
